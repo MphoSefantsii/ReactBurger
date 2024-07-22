@@ -1,42 +1,88 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.game {
   text-align: center;
+  margin-top: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.status {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.congratulations {
+  font-size: 28px;
+  color: #4CAF50;
+  /* Green color for congratulations */
+  margin: 20px 0;
+  position: relative;
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.flame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.example.com/flame.gif') no-repeat center center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.card {
-  padding: 2em;
+.congratulations.flame-active .flame {
+  opacity: 1;
 }
 
-.read-the-docs {
-  color: #888;
+.board {
+  display: inline-block;
+}
+
+.board-row {
+  display: flex;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  background-color: lightblue;
+  border: 2px solid #333;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  /* Default color for 'X' */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.square:hover {
+  box-shadow: 0 0 10px red;
+}
+
+.square.X {
+  color: black;
+}
+
+.square.O {
+  color: white;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid #333;
+  background-color: lightblue;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #ddd;
 }
