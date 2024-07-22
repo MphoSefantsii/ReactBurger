@@ -30,29 +30,23 @@ const  App = () => {
 );
  
 return (
-    <div className="burger">
-
-        <TopBread/>
-          {filling.map((layer) => {
-            return (
-              <>
-              {filling && <Filling
-               key={layer.id} 
-               id ={layer.id}
-               color={layer.color} 
-               type={layer.type} 
-               removeLayer={removeLayer}/>
-              }</>
-            );
-        })}
-        <BottomBread/>
-        <hr/>
-        <hr/>
-        <div style={{height: "50px"}}></div>
-        <FillingPicker setFilling={setFilling} />
-        <hr/>
-        <hr/>
-    </div>
+  <div className="burger">
+  <TopBread />
+  {filling.map((layer) => (
+    <Filling
+      key={layer.id}
+      id={layer.id}
+      color={layer.color}
+      type={layer.type}
+      removeLayer={removeLayer}
+    />
+  ))}
+  <BottomBread />
+  <hr />
+  <div style={{ height: '50px' }}></div>
+  <FillingPicker setFilling={setFilling} />
+  <hr />
+</div>
       
   );
 }

@@ -13,8 +13,8 @@ const Filling: React.FC<Props> = ({color, type,removeLayer,id}) => {
     //     set_isVisible(false);
     // }
     //  display: `${isVisible? "block": "none"}`
-    return <div onClick={() => removeLayer(id)}
-    style={{color: color}}>
+    return <div className={type.toLowerCase()} onClick={() => removeLayer(id)}
+    style={{color: "black",backgroundColor:color,width:"300px",height:"50px",borderRadius:"20px",margin:"5px 0",textAlign:"center",fontSize:"large"}}>
         {type}</div>
 };
 
