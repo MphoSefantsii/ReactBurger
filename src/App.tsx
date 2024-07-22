@@ -5,49 +5,46 @@ import BottomBread from './components/BottomBread';
 import { useEffect, useState } from 'react';
 import FillingPicker from './components/FillingPicker';
 
-const initialFilling = [
-  {color: "red", type: "Tomato",id:1},
-  {color: "brown", type: "Meat",id:2},
-  {color: "green", type: "Lettuce",id:3}
-];
-const  App = () => {
-  const [filling, setFilling] = useState(initialFilling);
-  //const [filling, setFilling] = useState(null);
-  const removeLayer = (id: number) => {
-      setFilling(filling.filter((layer) => layer.id !== id));
-  
-    };
-  useEffect(() => {
-      fetch('http://localhost:8000/filling')
-      .then(res => {
-        return res.json();
-      })
-      .then(data => 
-      {
-        setFilling(data);
-      })
-  }
-);
- 
-return (
-  <div className="burger">
-  <TopBread />
-  {filling.map((layer) => (
-    <Filling
-      key={layer.id}
-      id={layer.id}
-      color={layer.color}
-      type={layer.type}
-      removeLayer={removeLayer}
-    />
-  ))}
-  <BottomBread />
-  <hr />
-  <div style={{ height: '50px' }}></div>
-  <FillingPicker setFilling={setFilling} />
-  <hr />
-</div>
-      
-  );
+interface FillingType {
+  color: string;
+  type: string;
+  id: number;
 }
+
+const App = () => {
+  const [filling, setFilling] = useState<FillingType[]>([]);
+
+  const removeLayer = (id: number) => {
+    setFilling(filling.filter((layer) => layer.id !== id));
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:8000/filling')
+      .then(res => res.json())
+      .then((data: FillingType[]) => setFilling(data))
+      .catch(err => console.error("Error fetching data: ", err));
+  }, []);
+
+  return (
+    <div className="burger">
+      <h1>Welcome to Gee's Burger</h1>
+      <TopBread />
+      {filling.map((layer) => (
+        <Filling
+          key={layer.id}
+          id={layer.id}
+          color={layer.color}
+          type={layer.type}
+          removeLayer={removeLayer}
+        />
+      ))}
+      <BottomBread />
+      <hr />
+      <div style={{ height: '50px' }}></div>
+      <FillingPicker setFilling={setFilling} />
+      <hr />
+    </div>
+  );
+};
+
 export default App;

@@ -31,9 +31,8 @@ const FillingPicker: React.FC<Props> = ({ setFilling }) => {
 
         setFilling((prevFilling: Filling[]) => [newLayer, ...prevFilling]);
     };
-
     return (
-        <div>
+        <div className="filling-picker">
             <button
                 className="tomato"
                 type="button"

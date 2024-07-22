@@ -53,3 +53,37 @@
 .bottom-bread {
   border-radius: 0 0 20px 20px;
 }
+
+.filling-picker {
+  position: absolute;
+  right: 40%;
+  top: 0;
+}
+
+.filling-picker button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #555;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filling-picker button:hover {
+  opacity: 0.8;
+}
+
+.tomato {
+  background-color: red;
+}
+
+.lettuce {
+  background-color: green;
+}
+
+.meat {
+  background-color: brown;
+}
