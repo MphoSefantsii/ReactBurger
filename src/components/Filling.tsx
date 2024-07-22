@@ -3,8 +3,8 @@
 interface Props{
     type: string;
     color: string;
-    id : number;
-    removeLayer: (id: number) => void;
+    id : string;
+    removeLayer: (id: string) => void;
 }
 
 const Filling: React.FC<Props> = ({color, type,removeLayer,id}) => {

@@ -8,13 +8,13 @@ import FillingPicker from './components/FillingPicker';
 interface FillingType {
   color: string;
   type: string;
-  id: number;
+  id: string;  // Change to string
 }
 
 const App = () => {
   const [filling, setFilling] = useState<FillingType[]>([]);
 
-  const removeLayer = (id: number) => {
+  const removeLayer = (id: string) => {  // Change to string
     setFilling(filling.filter((layer) => layer.id !== id));
   };
 

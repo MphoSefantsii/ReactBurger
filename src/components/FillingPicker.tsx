@@ -4,6 +4,7 @@ import tomato from '../images/tomato.jpg';
 import lettuce from '../images/lettuce.jpg';
 import meat from '../images/meat.jpg';
 
+
 interface FillingType {
     color: string;
     type: string;
