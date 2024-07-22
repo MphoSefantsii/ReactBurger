@@ -1,5 +1,8 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import tomato from '../images/tomato.jpg';
+import lettuce from '../images/lettuce.jpg';
+import meat from '../images/meat.jpg';
 
 interface Filling {
     color: string;
@@ -33,28 +36,33 @@ const FillingPicker: React.FC<Props> = ({ setFilling }) => {
     };
     return (
         <div className="filling-picker">
-            <button
+            <p className="header">
+                <b>Click to add in your burger</b><br/>
+                <i>Enjoy best meals</i>
+            </p>
+                <button
                 className="tomato"
                 type="button"
                 onClick={() => addLayer("tomato")}
             >
-                Add Tomato
+                <img src={tomato}/>
             </button>
             <button
                 className="lettuce"
                 type="button"
                 onClick={() => addLayer("lettuce")}
             >
-                Add Lettuce
+                <img src={lettuce}/>
             </button>
             <button
                 className="meat"
                 type="button"
                 onClick={() => addLayer("meat")}
             >
-                Add Meat
+                <img src={meat}/>
             </button>
-        </div>
+
+    </div>
     );
 };
 

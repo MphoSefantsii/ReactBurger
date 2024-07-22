@@ -56,8 +56,8 @@
 
 .filling-picker {
   position: absolute;
-  right: 40%;
-  top: 0;
+  right: 20%;
+  top: 40%;
 }
 
 .filling-picker button {
@@ -66,7 +66,7 @@
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #555;
+  background-color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -76,14 +76,26 @@
   opacity: 0.8;
 }
 
-.tomato {
-  background-color: red;
+.filling-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+  margin: 20px;
 }
 
-.lettuce {
-  background-color: green;
+.filling-picker img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-.meat {
-  background-color: brown;
+.filling-picker img:hover {
+  transform: scale(1.1);
+}
+
+.filling-picker img:nth-child(3) {
+  grid-column: span 2;
 }
